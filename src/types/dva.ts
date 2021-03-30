@@ -1,7 +1,6 @@
 import { Action, AnyAction } from 'redux';
 
-export { connect } from '@tarojs/redux';
-
+export { connect } from 'react-redux';
 export interface Dispatch<A extends Action = AnyAction> {
   <T extends A>(action: T): any;
 }

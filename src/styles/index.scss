@@ -1,0 +1,35 @@
+/**
+ * Taro UI - Default variables
+ */
+
+/* Variables */
+@import './variables/default.scss';
+
+/* Mixin */
+@import './mixins/index.scss';
+
+@mixin ellipsis($line: 1) {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @if $line > 1 {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+  } @else {
+    white-space: nowrap;
+  }
+}
+/*人民币符号*/
+@mixin text-price($size: 60%) {
+  &:before {
+    content: '¥';
+    font-size: $size;
+    margin-right: 2px;
+  }
+}
+/*划掉价格*/
+@mixin text-delproce {
+  color: #999999;
+  text-decoration: line-through;
+}

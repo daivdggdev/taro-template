@@ -1,9 +1,10 @@
-import axios, { AxiosError, AxiosRequestConfig } from 'axios';
+import axios, { AxiosError, AxiosRequestConfig } from 'taro-axios';
 import { cloneDeep, isEmpty } from 'lodash';
 import { MetadataObj } from './type';
 import * as pathToRegexp from 'path-to-regexp';
 import { CANCEL_REQUEST_MESSAGE, ERROR_REQUEST_MESSAGE } from './constant';
 import qs from 'qs';
+// import Toast from '@/components/Library/Toast';
 
 /* eslint-disable */
 const SYSTEM_ERROR = 9001; // 系统异常
@@ -17,11 +18,16 @@ const NOT_BUSINESS_DOCUMENT_ERROR = 9008; // 数据未查询到
 const NOT_LOGIN_ERROR = 9009; // 数据未查询到
 /* eslint-enable */
 
-export interface ResponseData {
+export interface ResponseData<T> {
   success: boolean;
   message?: string;
   statusCode?: number;
-  data?: any;
+  data?: T;
+}
+
+export interface RequestConfig extends AxiosRequestConfig {
+  // 是否接口成功后自动显示Message
+  autoMessage?: boolean;
 }
 
 /**
@@ -31,8 +37,8 @@ export interface ResponseData {
  * @param {object} options 请求选项
  * @returns {Promise} 请求结果
  */
-export default function request(options: AxiosRequestConfig): Promise<ResponseData | undefined> {
-  const { data, url, method = 'get' } = options;
+export default function request(options: RequestConfig): Promise<ResponseData<any> | undefined> {
+  const { data, url, method = 'get', autoMessage = true } = options;
   if (!url) {
     throw new Error('request url none');
   }
@@ -49,8 +55,6 @@ export default function request(options: AxiosRequestConfig): Promise<ResponseDa
   options.headers = {
     'Content-Type': 'application/json;charset=UTF-8',
   };
-
-  console.log('options: ', options);
   return axios(options)
     .then(response => {
       if (options.responseType === 'blob') {
@@ -68,7 +72,7 @@ export default function request(options: AxiosRequestConfig): Promise<ResponseDa
           success: success,
           message: msg,
           statusCode: code,
-          data: value || {},
+          data: value ?? {},
         });
       }
     })
@@ -85,6 +89,7 @@ export default function request(options: AxiosRequestConfig): Promise<ResponseDa
       let statusCode: number;
 
       if (response && response instanceof Object) {
+        // eslint-disable-next-line no-shadow
         const { data, statusText } = response;
         statusCode = response.status;
         msg = data.message || statusText;
@@ -97,12 +102,24 @@ export default function request(options: AxiosRequestConfig): Promise<ResponseDa
         msg = ERROR_REQUEST_MESSAGE;
       }
 
+      if (autoMessage) {
+        // Toast.show({ title: msg });
+      }
+
       return {
         success: false,
         statusCode,
         message: msg,
       };
     });
+}
+
+export function setToken(token: string) {
+  if (!token) {
+    return;
+  }
+
+  axios.defaults.headers.Authorization = 'Bearer ' + token;
 }
 
 /**

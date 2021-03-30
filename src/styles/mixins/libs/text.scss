@@ -1,0 +1,20 @@
+@import '../../variables/default.scss';
+
+@mixin text-primary($size: $font-size-lg, $weight: bold) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color-text-title;
+}
+
+@mixin text-minor($size: $font-size-sm) {
+  font-size: $size;
+  font-weight: 500;
+  color: $color-text-paragraph;
+}
+
+@mixin text-weak($size: $font-size-sm) {
+  font-size: $size;
+  font-weight: 500;
+  color: $color-text-weak;
+}
+

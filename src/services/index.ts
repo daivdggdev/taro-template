@@ -1,24 +1,23 @@
 // @ts-nocheck
-import { AxiosRequestConfig, Method } from 'taro-axios';
-import request from '@/utils/request';
+import request, { RequestConfig } from '@/utils/request';
 import Config from '@/utils/config';
 import api from './api';
 
 const { apiPrefix } = Config;
 
 const gen = (params: string) => {
-  let url = apiPrefix + params;
-  let method: Method = 'GET';
+  let url = params;
+  let method = 'GET';
 
   const paramsArray = params.split(' ');
   if (paramsArray.length === 2) {
-    method = paramsArray[0] as Method;
-    url = apiPrefix + paramsArray[1];
-    // url = paramsArray[1];
+    method = paramsArray[0];
+    url = paramsArray[1];
   }
 
-  return function(data: object, config: AxiosRequestConfig = {}): Promise<any> {
+  return function(data: object, config: RequestConfig = {}): Promise<any> {
     return request({
+      baseURL: apiPrefix,
       url,
       data,
       method,
