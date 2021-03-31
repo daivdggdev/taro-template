@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@ahooksjs/use-request@^2.8.4":
+  version "2.8.4"
+  resolved "https://registry.npm.taobao.org/@ahooksjs/use-request/download/@ahooksjs/use-request-2.8.4.tgz#c404dce2c984f1ce8573e6577582cc9656a71e37"
+  integrity sha1-xATc4smE8c6Fc+ZXdYLMllanHjc=
+  dependencies:
+    lodash.debounce "^4.0.8"
+    lodash.throttle "^4.1.1"
+
 "@apidevtools/json-schema-ref-parser@9.0.7":
   version "9.0.7"
   resolved "https://registry.npm.taobao.org/@apidevtools/json-schema-ref-parser/download/@apidevtools/json-schema-ref-parser-9.0.7.tgz#64aa7f5b34e43d74ea9e408b90ddfba02050dde3"
@@ -3106,6 +3114,22 @@ aggregate-error@^3.0.0:
   dependencies:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
+
+ahooks@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.npm.taobao.org/ahooks/download/ahooks-2.10.0.tgz?cache=0&sync_timestamp=1616153915570&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fahooks%2Fdownload%2Fahooks-2.10.0.tgz#bec2c0b928115afd6d268e67770146988347675c"
+  integrity sha1-vsLAuSgRWv1tJo5ndwFGmINHZ1w=
+  dependencies:
+    "@ahooksjs/use-request" "^2.8.4"
+    "@types/js-cookie" "^2.2.6"
+    dayjs "^1.9.1"
+    intersection-observer "^0.7.0"
+    js-cookie "^2.2.1"
+    lodash.debounce "^4.0.8"
+    lodash.isequal "^4.5.0"
+    lodash.throttle "^4.1.1"
+    resize-observer-polyfill "^1.5.1"
+    screenfull "^5.0.0"
 
 ajv-errors@^1.0.0:
   version "1.0.1"
@@ -6212,7 +6236,7 @@ dayjs@^1.7.7:
   resolved "https://registry.npm.taobao.org/dayjs/download/dayjs-1.8.19.tgz#5117dc390d8f8e586d53891dbff3fa308f51abfe"
   integrity sha1-URfcOQ2PjlhtU4kdv/P6MI9Rq/4=
 
-dayjs@^1.8.32:
+dayjs@^1.8.32, dayjs@^1.9.1:
   version "1.10.4"
   resolved "https://registry.npm.taobao.org/dayjs/download/dayjs-1.10.4.tgz?cache=0&sync_timestamp=1611310053870&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdayjs%2Fdownload%2Fdayjs-1.10.4.tgz#8e544a9b8683f61783f570980a8a80eaf54ab1e2"
   integrity sha1-jlRKm4aD9heD9XCYCoqA6vVKseI=
@@ -10162,6 +10186,11 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
 
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npm.taobao.org/lodash.throttle/download/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
+
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npm.taobao.org/lodash.uniq/download/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
@@ -13847,7 +13876,7 @@ schema-utils@^3.0.0:
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
 
-screenfull@^5.1.0:
+screenfull@^5.0.0, screenfull@^5.1.0:
   version "5.1.0"
   resolved "https://registry.npm.taobao.org/screenfull/download/screenfull-5.1.0.tgz?cache=0&sync_timestamp=1608796474825&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fscreenfull%2Fdownload%2Fscreenfull-5.1.0.tgz#85c13c70f4ead4c1b8a935c70010dfdcd2c0e5c8"
   integrity sha1-hcE8cPTq1MG4qTXHABDf3NLA5cg=
