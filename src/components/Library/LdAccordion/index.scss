@@ -1,0 +1,103 @@
+@import '@/styles/index.scss';
+
+.page {
+  height: 8%;
+  width: 100%;
+  background: #fff;
+  @include flex-start;
+
+  .header {
+    height: 100%;
+    width: 100%;
+    @include flex-start(row);
+    z-index: 2;
+    // align-items: center;
+
+    .accordion {
+      height: 100%;
+      :global {
+        .at-accordion__header {
+          @include flex-start(row);
+          height: 100%;
+          align-items: center;
+          padding: 0 18px;
+          width: 150px;
+          margin-right: $spacing-v-xl;
+          @include text-minor($font-size-base);
+
+          .at-icon{
+            @include text-minor;
+          }
+        }
+        .at-accordion__header::after {
+          display: none;
+        }
+
+        .at-accordion__content {
+          z-index: 999;
+          width: 100%;
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+
+    .headerCenter {
+      width: 100%;
+      height: 100%;
+      .centerBox {
+        background: #ccc;
+        @include flex-start(row);
+        flex-wrap: wrap;
+        padding: $spacing-h-xxl $spacing-v-xl;
+        box-sizing: border-box;
+
+        .classBtn {
+          width: 160px;
+          min-width: 160px;
+          height: 66px;
+          background: #ffffff;
+          border-radius: 4px;
+          margin: 7px;
+          @include flex-center;
+          @include text-weak;
+        }
+
+        .selectBtn {
+          background: rgba(80, 192, 255, 1);
+          color: #fff;
+        }
+      }
+
+      .centerBtn {
+        width: 100%;
+        height: 100px;
+        background: #fff;
+        @include flex-center(row);
+
+        .btn {
+          flex: auto;
+          height: 100%;
+          border-radius: 0;
+          border: 1px solid rgba(240, 240, 240, 1);
+        }
+
+        .btn1 {
+          color: rgba(80, 192, 255, 1);
+        }
+      }
+    }
+  }
+
+  .mark {
+    width: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+    // opacity: 0.5;
+    bottom: 0;
+    // transition-duration: 1s;
+    transition-property: all;
+    // transition-timing-function: ease;
+    // transition-delay: 0s;
+  }
+}

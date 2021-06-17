@@ -2,9 +2,9 @@ import axios, { AxiosError, AxiosRequestConfig } from 'taro-axios';
 import { cloneDeep, isEmpty } from 'lodash';
 import { MetadataObj } from './type';
 import * as pathToRegexp from 'path-to-regexp';
+import Toast from '@/components/Library/Toast';
 import { CANCEL_REQUEST_MESSAGE, ERROR_REQUEST_MESSAGE } from './constant';
 import qs from 'qs';
-// import Toast from '@/components/Library/Toast';
 
 /* eslint-disable */
 const SYSTEM_ERROR = 9001; // 系统异常
@@ -53,14 +53,14 @@ export default function request(options: RequestConfig): Promise<ResponseData<an
 
   // session
   options.headers = {
-    'Content-Type': 'application/json;charset=UTF-8',
+    'Content-Type': 'application/json;charset=UTF-8'
   };
   return axios(options)
     .then(response => {
       if (options.responseType === 'blob') {
         return Promise.resolve({
           success: true,
-          data: response.data,
+          data: response.data
         });
       }
 
@@ -72,7 +72,7 @@ export default function request(options: RequestConfig): Promise<ResponseData<an
           success: success,
           message: msg,
           statusCode: code,
-          data: value ?? {},
+          data: value ?? {}
         });
       }
     })
@@ -81,7 +81,7 @@ export default function request(options: RequestConfig): Promise<ResponseData<an
       if (String(message) === CANCEL_REQUEST_MESSAGE) {
         return {
           success: false,
-          message: CANCEL_REQUEST_MESSAGE,
+          message: CANCEL_REQUEST_MESSAGE
         };
       }
 
@@ -103,13 +103,13 @@ export default function request(options: RequestConfig): Promise<ResponseData<an
       }
 
       if (autoMessage) {
-        // Toast.show({ title: msg });
+        Toast.show({ title: msg });
       }
 
       return {
         success: false,
         statusCode,
-        message: msg,
+        message: msg
       };
     });
 }

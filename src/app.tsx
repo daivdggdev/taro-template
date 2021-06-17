@@ -16,7 +16,7 @@ const app = dva({
   models,
   onError(e: any) {
     console.log('onError', e);
-  },
+  }
 });
 
 const store = app.getStore();
