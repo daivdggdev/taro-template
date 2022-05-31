@@ -6,21 +6,38 @@ module.exports = {
       'taro',
       {
         framework: 'react',
-        ts: true,
+        ts: true
         // decoratorsBeforeExport: true,
         // decoratorsLegacy: false
-      },
-    ],
+      }
+    ]
   ],
   plugins: [
     [
       'import',
       {
+        libraryName: 'taro-hooks',
+        camel2DashComponentName: false
+      },
+      'taro-hooks'
+    ],
+    [
+      'import',
+      {
+        libraryName: '@antmjs/vantui',
+        libraryDirectory: 'es',
+        style: true
+      },
+      '@antmjs/vantui'
+    ],
+    [
+      'import',
+      {
         libraryName: 'lodash',
         libraryDirectory: '',
-        camel2DashComponentName: false,
+        camel2DashComponentName: false
       },
-      'lodash',
-    ],
-  ],
+      'lodash'
+    ]
+  ]
 };

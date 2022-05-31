@@ -5,17 +5,15 @@ export default {
     /**
      * 首页
      */
-    'pages/index/index',
+    'pages/index/index'
   ],
   permission: {},
   window: {
     backgroundTextStyle: 'dark',
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'black',
+    navigationBarTextStyle: 'black'
   },
 
-  usingComponents: Object.assign(useGlobalIconFont(), {
-    parser: './components/Library/RichText/parser/parser',
-  }),
+  usingComponents: Object.assign(useGlobalIconFont())
 };

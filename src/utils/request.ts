@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosRequestConfig } from 'taro-axios';
 import { cloneDeep, isEmpty } from 'lodash';
 import { MetadataObj } from './type';
 import * as pathToRegexp from 'path-to-regexp';
-import Toast from '@/components/Library/Toast';
+import Toast from '@/library/Toast';
 import { CANCEL_REQUEST_MESSAGE, ERROR_REQUEST_MESSAGE } from './constant';
 import qs from 'qs';
 
@@ -89,7 +89,6 @@ export default function request(options: RequestConfig): Promise<ResponseData<an
       let statusCode: number;
 
       if (response && response instanceof Object) {
-        // eslint-disable-next-line no-shadow
         const { data, statusText } = response;
         statusCode = response.status;
         msg = data.message || statusText;

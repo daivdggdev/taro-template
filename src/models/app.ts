@@ -11,7 +11,7 @@ export interface State {
 const model: DvaModel<State> = {
   namespace: 'app',
   state: {
-    login: false,
+    login: false
   },
   effects: {
     *login({ payload }, { call, put }) {
@@ -23,10 +23,10 @@ const model: DvaModel<State> = {
 
       yield put({
         type: 'updateState',
-        payload: { login: true },
+        payload: { login: true }
       });
-    },
-  },
+    }
+  }
 };
 
 export default commonExtend(model);

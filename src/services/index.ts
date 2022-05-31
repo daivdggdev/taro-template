@@ -21,7 +21,7 @@ const gen = (params: string) => {
       url,
       data,
       method,
-      ...config,
+      ...config
     });
   };
 };

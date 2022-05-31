@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['taro', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
+  extends: ['taro/react', 'plugin:prettier/recommended'],
   plugins: ['prettier'],
   rules: {
     'no-unused-vars': ['error', { varsIgnorePattern: 'Taro' }],
@@ -22,10 +22,12 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-use-before-define': 0,
+    '@typescript-eslint/no-shadow': 0,
     'no-shadow': ['warn'],
     'prefer-const': ['warn'],
     'import/first': 0,
-    'import/no-commonjs': 0
+    'import/no-commonjs': 0,
+    'import/no-named-as-default': 0
   },
   parserOptions: {
     ecmaFeatures: {

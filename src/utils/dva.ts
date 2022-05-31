@@ -11,8 +11,8 @@ export default function(options: any) {
   app.use(createDvaImmer());
   app.use({
     ...createLoading({
-      effects: true,
-    }),
+      effects: true
+    })
   });
 
   // HMR workaround
