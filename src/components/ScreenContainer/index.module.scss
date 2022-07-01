@@ -1,0 +1,17 @@
+@import '@/styles/index.scss';
+
+.layout {
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  position: relative;
+  background-color: $color-bg-grey;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.children {
+  width: 100%;
+  z-index: 1;
+  flex-grow: 1;
+}

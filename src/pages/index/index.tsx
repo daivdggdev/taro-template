@@ -4,7 +4,7 @@ import { AtButton } from 'taro-ui';
 import { WholeState } from '@/types/globals';
 import { useSelector, useDispatch } from 'react-redux';
 import { usePersistFn } from 'ahooks';
-import './index.scss';
+import styles from './index.module.scss';
 
 const Home: React.FC<{}> = props => {
   const dispatch = useDispatch();
@@ -18,8 +18,8 @@ const Home: React.FC<{}> = props => {
   });
 
   return (
-    <View className="index">
-      <AtButton className="add_btn" onClick={handleClick}>
+    <View className={styles.index}>
+      <AtButton className={styles.add_btn} onClick={handleClick}>
         +
       </AtButton>
       <View>

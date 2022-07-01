@@ -1,0 +1,8 @@
+@import '@/styles/index.scss';
+
+.layout {
+  @include flex-center;
+
+  width: 100%;
+  flex-wrap: wrap;
+}
